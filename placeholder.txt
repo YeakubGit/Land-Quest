@@ -1,0 +1,1 @@
+Placeholder image fallback is referenced but intentionally omitted; add public/placeholder-property.jpg or replace the fallback with a remote image.

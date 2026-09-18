@@ -1,0 +1,2 @@
+import {MortgageCalculator,RefinanceCalculator} from '@/components/calculators';import {SectionTitle} from '@/components/ui'
+export default function Calculators(){return <main className="container-shell py-16"><SectionTitle eyebrow="Planning tools" title="Run the numbers before you move." copy="Use these calculators for a quick planning estimate. They are not a loan offer or financial advice."/><div className="mt-10 grid gap-6 lg:grid-cols-2"><MortgageCalculator/><RefinanceCalculator/></div></main>}

@@ -1,0 +1,22 @@
+import {defineType,defineField} from 'sanity'
+export default defineType({name:'property',title:'Property Listing',type:'document',groups:[{name:'basics',title:'Basics',default:true},{name:'details',title:'Details'},{name:'media',title:'Photos & Map'},{name:'agent',title:'Agent'}],fields:[
+ defineField({name:'title',title:'Listing title',type:'string',group:'basics',validation:r=>r.required()}),
+ defineField({name:'slug',title:'URL slug',type:'slug',group:'basics',options:{source:'title',maxLength:96},validation:r=>r.required()}),
+ defineField({name:'categories',title:'Listing categories',type:'array',group:'basics',of:[{type:'string'}],options:{list:[{title:'Buy',value:'buy'},{title:'Rent',value:'rent'},{title:'Sell',value:'sell'},{title:'Foreclosure',value:'foreclosure'}]},validation:r=>r.min(1)}),
+ defineField({name:'status',title:'Status',type:'string',group:'basics',options:{list:['For Sale','For Rent','Foreclosure','Sold','Pending']},initialValue:'For Sale'}),
+ defineField({name:'propertyType',title:'Property type',type:'string',group:'basics',options:{list:['House','Condo','Apartment','Townhouse','Multi-family','Land','Co-op','Commercial']}}),
+ defineField({name:'price',title:'Price',type:'number',group:'basics'}),
+ defineField({name:'address',title:'Street address',type:'string',group:'basics'}),
+ defineField({name:'borough',title:'Borough / County',type:'string',group:'basics'}),
+ defineField({name:'neighborhood',title:'Neighborhood',type:'string',group:'basics'}),
+ defineField({name:'city',title:'City',type:'string',group:'basics',initialValue:'New York'}),
+ defineField({name:'state',title:'State',type:'string',group:'basics',initialValue:'NY'}),
+ defineField({name:'zip',title:'ZIP',type:'string',group:'basics'}),
+ defineField({name:'bedrooms',title:'Bedrooms',type:'number',group:'details'}),defineField({name:'bathrooms',title:'Bathrooms',type:'number',group:'details'}),defineField({name:'sqft',title:'Interior sq ft',type:'number',group:'details'}),defineField({name:'lotSize',title:'Lot size sq ft',type:'number',group:'details'}),
+ defineField({name:'description',title:'Description',type:'array',group:'details',of:[{type:'block'}]}),
+ defineField({name:'features',title:'Key features',type:'array',group:'details',of:[{type:'string'}]}),
+ defineField({name:'images',title:'Gallery',type:'array',group:'media',of:[{type:'image',options:{hotspot:true},fields:[{name:'alt',title:'Alt text',type:'string'}]}],validation:r=>r.min(1)}),
+ defineField({name:'latitude',title:'Latitude',type:'number',group:'media'}),defineField({name:'longitude',title:'Longitude',type:'number',group:'media'}),
+ defineField({name:'agentName',title:'Agent name',type:'string',group:'agent'}),defineField({name:'agentPhone',title:'Agent phone',type:'string',group:'agent'}),defineField({name:'agentEmail',title:'Agent email',type:'string',group:'agent'}),
+ defineField({name:'featured',title:'Feature on homepage',type:'boolean',group:'basics',initialValue:false}),
+],preview:{select:{title:'title',media:'images.0',price:'price'},prepare:s=>({title:s.title,subtitle:s.price?`$${Number(s.price).toLocaleString()}`:'Price upon request',media:s.media})}})

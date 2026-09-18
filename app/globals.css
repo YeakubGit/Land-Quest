@@ -1,0 +1,2 @@
+@tailwind base;@tailwind components;@tailwind utilities;
+:root{--navy:#10233f}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#fff;color:#101827;font-family:Arial,Helvetica,sans-serif}.container-shell{width:min(1180px,calc(100% - 40px));margin-inline:auto}.font-serif{font-family:Georgia,'Times New Roman',serif}.field{width:100%;border:1px solid #dbe1e8;border-radius:12px;padding:12px 14px;outline:none}.field:focus{border-color:#10233f;box-shadow:0 0 0 3px rgba(16,35,63,.08)}

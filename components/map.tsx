@@ -1,0 +1,3 @@
+'use client'
+import {useEffect,useRef} from 'react';import {Loader} from '@googlemaps/js-api-loader'
+export default function PropertyMap({lat,lng,title}:{lat:number;lng:number;title:string}){const ref=useRef<HTMLDivElement>(null);useEffect(()=>{if(!ref.current||!process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY)return;const loader=new Loader({apiKey:process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY});loader.importLibrary('maps').then(({Map})=>{loader.importLibrary('marker').then(({AdvancedMarkerElement})=>{const map=new Map(ref.current!,{center:{lat,lng},zoom:15,mapId:'DEMO_MAP_ID',disableDefaultUI:true});new AdvancedMarkerElement({map,position:{lat,lng},title})})})},[lat,lng,title]);return <div ref={ref} className="h-[360px] w-full rounded-2xl bg-slate-100"/>}

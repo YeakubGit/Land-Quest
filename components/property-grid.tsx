@@ -1,0 +1,2 @@
+import PropertyCard from './property-card';import type {Property} from '@/types'
+export default function PropertyGrid({properties}:{properties:Property[]}){if(!properties.length)return <div className="rounded-2xl border border-dashed p-10 text-center text-slate-500">No properties match these criteria yet.</div>;return <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">{properties.map(p=><PropertyCard key={p._id} p={p}/>)}</div>}

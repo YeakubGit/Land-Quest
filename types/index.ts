@@ -1,0 +1,2 @@
+export type Property={_id:string;title:string;slug:string;categories:string[];status:string;propertyType:string;price?:number;address:string;borough?:string;neighborhood?:string;city:string;state:string;zip?:string;bedrooms?:number;bathrooms?:number;sqft?:number;lotSize?:number;description?:any[];features?:string[];images?:any[];latitude?:number;longitude?:number;agentName?:string;agentPhone?:string;agentEmail?:string;featured?:boolean}
+export type Review={_id:string;clientName:string;photo?:any;rating:number;review:string;propertyType?:string;date?:string;featured?:boolean}
